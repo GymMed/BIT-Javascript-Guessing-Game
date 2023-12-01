@@ -39,10 +39,25 @@
                         </button>
                     </div>
                 </form>
-                <div
-                    class="text-md bg-gradient-to-br text-white p-3 rounded-md shadow-md hidden"
-                    id="guess-results"
-                ></div>
+                <div class="flex flex-col gap-4">
+                    <div
+                        class="text-md bg-gradient-to-br text-white p-3 rounded-md shadow-md hidden"
+                        id="guess-results"
+                    ></div>
+                    <div
+                        id="win-wrapper"
+                        class="win-wrapper flex flex-col gap-3 p-3 rounded-md bg-gradient-to-br from-green-500 to-green-700 hidden"
+                    >
+                        <div class="text-2xl text-white text-center font-bold">
+                            Your mental reward:
+                        </div>
+                        <img
+                            src="images/stupid.jpeg"
+                            alt="mental reward"
+                            class="m-3 rounded-md shadow-lg"
+                        />
+                    </div>
+                </div>
             </section>
         </main>
         <script src="js/general.js"></script>

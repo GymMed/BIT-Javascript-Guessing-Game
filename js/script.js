@@ -1,6 +1,10 @@
 let guessNumberInputDom = document.querySelector("#guess-number");
 let guessNumberButtonDom = document.querySelector("#guess-number-btn");
 let guessResultsDom = document.querySelector("#guess-results");
+let winRewardDom = document.querySelector("#win-wrapper");
+
+let winRewardParentDom = winRewardDom.parentNode;
+hideDom(winRewardParentDom);
 
 let guessTries = 6;
 let currentGuess = 0;
@@ -31,9 +35,11 @@ function lose(guessValue, randomValue) {
     const loseCaseClasses = loseClasses.split(" ");
     addUncontainedClasses(loseCaseClasses, guessResultsDom);
     showHiddenDom(guessResultsDom);
-    guessResultsDom.textContent = `You failed to guess.\nYour guess: ${guessValue}\nGenerated value: ${randomValue}\nTries left: ${
+    guessResultsDom.innerHTML = `You failed to guess!<br>Your guess: ${guessValue}<br>Generated value: ${randomValue}<br>Tries left: ${
         guessTries - currentGuess
     }`;
+    showHiddenDom(winRewardParentDom);
+    hideDom(winRewardDom);
 }
 
 function win(guessValue, randomValue) {
@@ -43,9 +49,11 @@ function win(guessValue, randomValue) {
     const winCaseClasses = winClasses.split(" ");
     addUncontainedClasses(winCaseClasses, guessResultsDom);
     showHiddenDom(guessResultsDom);
-    guessResultsDom.textContent = `You won!\nYour guess: ${guessValue}\nGenerated value: ${randomValue}\nTries left: ${
+    guessResultsDom.innerHTML = `You won!<br>Your guess: ${guessValue}<br>Generated value: ${randomValue}<br>Tries left: ${
         guessTries - currentGuess
     }`;
+    showHiddenDom(winRewardParentDom);
+    showHiddenDom(winRewardDom);
 }
 
 function addUncontainedClasses(array, dom) {
@@ -79,5 +87,17 @@ function removeContainedClasses(array, dom) {
 }
 
 function showHiddenDom(dom) {
-    if (dom.classList.contains("hidden")) dom.classList.remove("hidden");
+    removeIfExistsClassFromDom(dom, "hidden");
+}
+
+function hideDom(dom) {
+    addIfDoNotExistClassToDom(dom, "hidden");
+}
+
+function removeIfExistsClassFromDom(dom, passedClass) {
+    if (dom.classList.contains(passedClass)) dom.classList.remove(passedClass);
+}
+
+function addIfDoNotExistClassToDom(dom, passedClass) {
+    if (!dom.classList.contains(passedClass)) dom.classList.add(passedClass);
 }
