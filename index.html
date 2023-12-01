@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Number Guessing Game</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <main class="m-5 p-5 shadow-xl rounded-xl flex flex-col gap-3">
+            <h1 class="text-center text-2xl font-bold text-blue-500">
+                Random number guessing game!
+            </h1>
+            <section
+                class="rounded-xl shadow-inner bg-gray-50 p-5 flex flex-col gap-5"
+            >
+                <div class="text-center text-lg font-bold text-blue-500">
+                    You got 6 tries to guess number from 1 to 20 and receive
+                    reward!
+                </div>
+                <form action="" class="flex flex-col gap-3">
+                    <div class="flex flex-col gap-3">
+                        <label for="guess-number">Your Guess:</label>
+                        <input
+                            type="text"
+                            name="guess-number"
+                            id="guess-number"
+                            placeholder="Your number . . ."
+                            class="p-2 border-2 rounded-md focus:ring-blue-500 focus:ring focus:ring-offset-2 focus:ring-offset-white"
+                        />
+                    </div>
+                    <div>
+                        <button
+                            type="button"
+                            class="shadow-lg px-4 bg-gradient-to-br from-blue-500 to-blue-700 hover:from-blue-700 hover:to-blue-900 text-white rounded-md focus:ring-blue-500 focus:ring focus:ring-offset-2 focus:ring-offset-white"
+                            id="guess-number-btn"
+                        >
+                            <div class="hover:scale-110 py-1">Guess</div>
+                        </button>
+                    </div>
+                </form>
+                <div
+                    class="text-md bg-gradient-to-br text-white p-3 rounded-md shadow-md hidden"
+                    id="guess-results"
+                ></div>
+            </section>
+        </main>
+        <script src="js/general.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
